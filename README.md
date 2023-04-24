@@ -28,3 +28,4 @@ Coming soon!
 
 It's still kinda crude, but you can check how this is going here:
 
+https://pokemon-a7njwxj3o-alhanampi.vercel.app/
