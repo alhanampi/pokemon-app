@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { getAllPokemon, IPokemonData } from '../../services/pokeService';
-import Card from '../Card';
-import { CardsContainer } from './styles';
+import React, { useEffect, useState } from "react";
+import { getAllPokemon, IPokemonData } from "../../services/pokeService";
+import Card from "../Card";
+import { CardsContainer } from "./styles";
 
 interface IMainScreenState {
   pokes: IPokemonData[];
@@ -20,7 +20,7 @@ const MainScreen = () => {
     const getPokes = async () => {
       try {
         const res = await getAllPokemon();
-        setState(prevState => ({ ...prevState, pokes: res }));
+        setState((prevState) => ({ ...prevState, pokes: res }));
       } catch (error) {
         throw new Error(`failed to fetch: ${error}`);
       }
@@ -31,7 +31,7 @@ const MainScreen = () => {
   const loadMorePokemon = async () => {
     try {
       const response = await getAllPokemon(currentPage * 20);
-      setState(prevState => ({
+      setState((prevState) => ({
         ...prevState,
         pokes: [...prevState.pokes, ...response],
         currentPage: prevState.currentPage + 1,
@@ -48,24 +48,25 @@ const MainScreen = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [currentPage]);
 
   return (
     <div>
-      <div className='poke-font'>Pokemon App</div>
+      <div className="poke-font">Pokemon App</div>
       <CardsContainer>
-      {pokes.map(poke => (
-        <Card
-          key={poke.name}
-          name={poke.name}
-          imageUrl={poke.imageUrl}
-          type={poke.type}
-          id={poke.id}
-          abilities={poke.abilities} weaknesses={poke.weaknesses} 
-        />
-      ))}
+        {pokes.map((poke) => (
+          <Card
+            key={poke.name}
+            name={poke.name}
+            imageUrl={poke.imageUrl}
+            type={poke.type}
+            id={poke.id}
+            abilities={poke.abilities}
+            weaknesses={poke.weaknesses}
+          />
+        ))}
       </CardsContainer>
     </div>
   );

@@ -26,4 +26,5 @@ Coming soon!
 
 ## Vercel
 
-Coming soon!
+It's still kinda crude, but you can check how this is going here:
+
