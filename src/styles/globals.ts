@@ -19,6 +19,7 @@ const Globals = css`
   --primary-black: rgb(0, 0, 0);
   --primary-white: rgb(255, 255, 250);
   --transparent-white: rgba(255, 255, 250, 0.4);
+  --transparent-white-extra: rgba(255, 255, 250, 0.7);
   }
 
   body {

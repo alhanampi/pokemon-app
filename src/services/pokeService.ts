@@ -17,6 +17,8 @@ export interface IPokemonData {
   name: string;
   imageUrl: string;
   type: string[];
+  abilities: string[];
+  weaknesses: string[];
 }
 
 const api = "https://pokeapi.co/api/v2/";
@@ -38,11 +40,17 @@ export const getAllPokemon = async (offset = 0): Promise<IPokemonData[]> => {
     const pokemonDataArray: IPokemonData[] = await Promise.all(
       results.map(async (result: IPokemonResult) => {
         const pokemonResponse: AxiosResponse<any> = await axios.get(result.url);
+        const abilities = pokemonResponse.data.abilities.map((ability: any) => ability.ability.name);
+        const weaknessesResponse: AxiosResponse<any> = await axios.get(`${api}type/${pokemonResponse.data.types[0].type.name}`);
+        const weaknesses = weaknessesResponse.data.damage_relations.double_damage_from.map((weakness: any) => weakness.name);
+
         const pokemonData: IPokemonData = {
           id: pokemonResponse.data.id,
           name: pokemonResponse.data.name,
           imageUrl: pokemonResponse.data.sprites.front_default,
           type: pokemonResponse.data.types.map((type: any) => type.type.name),
+          abilities,
+          weaknesses,
         };
         return pokemonData;
       })

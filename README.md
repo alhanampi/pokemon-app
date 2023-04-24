@@ -18,6 +18,8 @@ Something really simple, at least for now:
 - styled-components
 - axios
 
+What makes this project different, then? well, I used it to test chat-gpt, asking it for refactorings, color palettes and the sort. I'm still testing its limits so it's very fun!
+
 ## Screenshots
 
 Coming soon!

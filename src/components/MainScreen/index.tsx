@@ -63,6 +63,7 @@ const MainScreen = () => {
           imageUrl={poke.imageUrl}
           type={poke.type}
           id={poke.id}
+          abilities={poke.abilities} weaknesses={poke.weaknesses} 
         />
       ))}
       </CardsContainer>
