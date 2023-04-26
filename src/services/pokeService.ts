@@ -1,5 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 
+const api = process.env.REACT_APP_API_URL;
+
 export interface IPokemonResult {
   name: string;
   url: string;
@@ -16,12 +18,13 @@ export interface IPokemonData {
   id: number;
   name: string;
   imageUrl: string;
+  sprites: {
+    front_default: string;
+  };
   type: string[];
   abilities: string[];
   weaknesses: string[];
 }
-
-const api = "https://pokeapi.co/api/v2/";
 
 export const getAllPokemon = async (offset = 0): Promise<IPokemonData[]> => {
   try {
@@ -48,6 +51,7 @@ export const getAllPokemon = async (offset = 0): Promise<IPokemonData[]> => {
           id: pokemonResponse.data.id,
           name: pokemonResponse.data.name,
           imageUrl: pokemonResponse.data.sprites.front_default,
+          sprites: pokemonResponse.data.sprites,
           type: pokemonResponse.data.types.map((type: any) => type.type.name),
           abilities,
           weaknesses,
@@ -56,7 +60,6 @@ export const getAllPokemon = async (offset = 0): Promise<IPokemonData[]> => {
       })
     );
 
-    console.log(pokemonDataArray);
     return pokemonDataArray;
   } catch (error) {
     throw new Error(`failed to fetch: ${error}`);

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MiniCardContainer = styled.div`
   display: flex;
-  width: 10em;
+  width: 13em;
   height: 20em;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,8 @@ export const MiniCardContainer = styled.div`
   border-radius: 20px;
   box-shadow: 2px 2px 6px var(--primary-grey);
   position: relative;
-
+  margin: 0 20px;
+  
     img {
      height: 8em;
      padding-bottom: 4em;

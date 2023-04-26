@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FullCardContainer = styled.div`
   display: flex;
-  width: 10em;
+  width: 13em;
   height: 20em;
   flex-direction: column;
   justify-content: space-around;
@@ -10,11 +10,16 @@ export const FullCardContainer = styled.div`
   border-radius: 20px;
   box-shadow: 2px 2px 6px var(--primary-grey);
   position: relative;
+  margin: 0 20px;
 
-    img {
+    .poke {
      height: 4em;
      z-index: 3;
      margin: -3em 0; 
+    }
+
+    .poke-font {
+      font-size: 12px;
     }
 
     .name {
@@ -29,5 +34,17 @@ export const FullCardContainer = styled.div`
       background-color: var(--transparent-white-extra);
       border-radius: 10px;
       padding: 0 1em;
+      margin: 0 0.5em;
+      box-shadow: 2px 2px 6px var(--transparent-black);
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 1em;
+        height: 1em;
+        padding: 0 0.2em;
+      }
     }
 `

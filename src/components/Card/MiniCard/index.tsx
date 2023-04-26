@@ -6,6 +6,7 @@ import '../../../styles/types.css'
 const MiniCard: FC<IPokemonData> = ({ name, imageUrl, id, type }) => {
   
   const typeClass = type.map((type) => type.toLowerCase()).join(" ");
+  
   return (
     <MiniCardContainer className={typeClass}>
       <img src={imageUrl} />

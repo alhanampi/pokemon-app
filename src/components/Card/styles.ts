@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
   position: relative;
-  width: 10em;
+  width: 13em;
   height: 20em;
+  margin: 0 20px;
   perspective: 800px;
   cursor: pointer;
 

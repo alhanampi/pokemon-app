@@ -11,6 +11,7 @@ const Card: FC<IPokemonData> = ({
   id,
   abilities,
   weaknesses,
+  sprites
 }) => {
   const [showFull, setshowFull] = useState(false);
 
@@ -28,6 +29,7 @@ const Card: FC<IPokemonData> = ({
             id={id}
             abilities={abilities}
             weaknesses={weaknesses}
+            sprites={sprites}
           />
         </div>
         <div className="card-back">
@@ -38,6 +40,7 @@ const Card: FC<IPokemonData> = ({
             id={id}
             abilities={abilities}
             weaknesses={weaknesses}
+            sprites={sprites}
           />
         </div>
       </div>
