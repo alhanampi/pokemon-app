@@ -6,13 +6,12 @@ import "../../../styles/types.css";
 const FullCard: FC<IPokemonData> = ({
   name,
   imageUrl,
-  id,
   type,
   abilities,
   weaknesses,
 }) => {
   const typeClass = type.map((type) => type.toLowerCase()).join(" ");
-  console.log("type:", type);
+
   return (
     <FullCardContainer className={typeClass}>
       <p className="poke-font name">
@@ -26,7 +25,7 @@ const FullCard: FC<IPokemonData> = ({
             {type.map((t) => {
               return (
                 <img
-                  src={`images/icons/Pokemon_Type_Icon_${t}.png`}
+                  src={`/images/icons/${t}.png`}
                   alt={t}
                   key={t}
                   className="icons"
@@ -42,13 +41,7 @@ const FullCard: FC<IPokemonData> = ({
           Weakness:
           <span className="icons">
             {weaknesses.map((w) => {
-              return (
-                <img
-                  src={`images/icons/Pokemon_Type_Icon_${w}.png`}
-                  alt={w}
-                  key={w}
-                />
-              );
+              return <img src={`/images/icons/${w}.png`} alt={w} key={w} />;
             })}
           </span>
         </p>
