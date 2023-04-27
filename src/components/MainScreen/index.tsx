@@ -6,12 +6,14 @@ import { CardsContainer } from "./styles";
 interface IMainScreenState {
   pokes: IPokemonData[];
   currentPage: number;
+  searchTerm: string;
 }
 
 const MainScreen = () => {
   const [state, setState] = useState<IMainScreenState>({
     pokes: [],
     currentPage: 1,
+    searchTerm: "",
   });
 
   const { pokes, currentPage } = state;
@@ -54,7 +56,6 @@ const MainScreen = () => {
 
   return (
     <div>
-      <div className="poke-font">Pokemon App</div>
       <CardsContainer>
         {pokes.map((poke) => (
           <Card

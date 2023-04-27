@@ -9,7 +9,7 @@ const MiniCard: FC<IPokemonData> = ({ name, imageUrl, id, type }) => {
   
   return (
     <MiniCardContainer className={typeClass}>
-      <img src={imageUrl} />
+      <img src={imageUrl} alt={imageUrl} />
       <p className="poke-font id">{id}</p>
       <p className='poke-font name'>{name.charAt(0).toUpperCase() + name.slice(1)}</p>
     </MiniCardContainer>
