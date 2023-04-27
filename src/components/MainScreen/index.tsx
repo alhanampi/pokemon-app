@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { getAllPokemon, IPokemonData } from "../../services/pokeService";
+import { FC, useEffect, useState } from "react";
+import { getAllPokemon } from "../../services/pokeService";
 import Card from "../Card";
 import { CardsContainer } from "./styles";
+import Header from "../Header";
+import { IMainScreenState } from "../../interfaces";
 
-interface IMainScreenState {
-  pokes: IPokemonData[];
-  currentPage: number;
-  searchTerm: string;
-}
-
-const MainScreen = () => {
+const MainScreen: FC = () => {
   const [state, setState] = useState<IMainScreenState>({
     pokes: [],
     currentPage: 1,
@@ -56,6 +52,7 @@ const MainScreen = () => {
 
   return (
     <div>
+            <Header />
       <CardsContainer>
         {pokes.map((poke) => (
           <Card

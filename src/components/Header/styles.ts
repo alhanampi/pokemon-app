@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   position: fixed;
@@ -13,18 +13,34 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 0 2rem;
   z-index: 3;
+
+  .left {
+    color: var(--primary-pink);
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    height: 60px;
+    margin-top: 10px;
+  }
 `;
 
 export const SearchInput = styled.input`
-  border: none;
+  border: 1px solid var(--primary-orange);
   border-radius: 2rem;
-  background-color: #f7f7f7;
+  background-color: var(--primary-white);
   padding: 0.1rem 1rem;
   font-size: 0.6rem;
-  color: #555;
   width: 18rem;
   transition: all 0.2s ease-in-out;
+  color: var(--primary-pink);
 
+  ::placeholder {
+    color: var(--primary-orange);
+  }
   &:focus {
     outline: none;
     background-color: #fff;

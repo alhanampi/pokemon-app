@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
 import MiniCard from "./MiniCard";
 import FullCard from "./FullCard";
-import { IPokemonData } from "../../services/pokeService";
 import { CardContainer } from "./styles";
+import { IPokemonData } from "../../interfaces";
 
 const Card: FC<IPokemonData> = ({
   name,
@@ -11,7 +11,7 @@ const Card: FC<IPokemonData> = ({
   id,
   abilities,
   weaknesses,
-  sprites
+  sprites,
 }) => {
   const [showFull, setshowFull] = useState(false);
 

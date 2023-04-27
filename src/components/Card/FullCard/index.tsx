@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { FullCardContainer } from "./styles";
-import { IPokemonData } from "../../../services/pokeService";
 import "../../../styles/types.css";
+import { IPokemonData } from "../../../interfaces";
 
 const FullCard: FC<IPokemonData> = ({
   name,

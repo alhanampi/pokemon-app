@@ -42,6 +42,7 @@ export const FullCardContainer = styled.div`
   .icons {
     display: flex;
     justify-content: center;
+    
     img {
       width: 1em;
       height: 1em;

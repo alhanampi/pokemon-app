@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FooterContainer = styled.div`
   position: fixed;
@@ -12,16 +12,15 @@ export const FooterContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   z-index: 2;
-  
 
   .contacts {
-    svg{
+    svg {
       margin: 1em;
       color: var(--primary-pink);
       transition: 0.4s ease-in-out;
 
       :hover {
-          color: var(--primary-orange);
+        color: var(--primary-orange);
       }
     }
   }
