@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useEffect, useState } from "react";
 import { getAllPokemon } from "../../services/pokeService";
 import Card from "../Card";
@@ -52,7 +53,6 @@ const MainScreen: FC = () => {
 
   return (
     <div>
-            <Header />
       <CardsContainer>
         {pokes.map((poke) => (
           <Card

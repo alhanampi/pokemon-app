@@ -1,34 +1,53 @@
 import { css } from 'styled-components';
 
-const Globals = css`
-@font-face {
-  font-family: 'Pokemon';
-  src: url('/fonts/Pokemon Solid.ttf') format('truetype');
-}
+export const lightTheme = {
+  colors: {
+    primaryOrange: 'rgb(255, 152, 0)',
+    primaryPink: 'rgb(233, 30, 99)',
+    primaryGrey: 'rgb(158, 158, 158)',
+    primaryBlack: 'rgb(0, 0, 0)',
+    primaryWhite: 'rgb(255, 255, 250)',
+    transparentWhite: 'rgba(255, 255, 250, 0.4)',
+    transparentWhiteExtra: 'rgba(255, 255, 250, 0.7)',
+    transparentBlack: 'rgba(0, 0, 0, 0.4)',
+  },
+};
 
- :root  {
-  --primary-red: #D2242A;
-  --primary-blue: #00AEEE;
-  --primary-yellow: #FFF202;
-  --primary-green: #39B549;
-  --primary-orange: rgba(255, 152, 0);
-  --primary-purple: rgb(156, 39, 176);
-  --primary-pink: rgb(233, 30, 99);
-  --primary-brown: rgb(121, 85, 72);
-  --primary-grey: rgb(158, 158, 158);
-  --primary-black: rgb(0, 0, 0);
-  --primary-white: rgb(255, 255, 250);
-  --transparent-white: rgba(255, 255, 250, 0.4);
-  --transparent-white-extra: rgba(255, 255, 250, 0.7);
-  --transparent-black: rgba(0, 0, 0, 0.4);
+export const darkTheme = {
+  colors: {
+    primaryOrange: 'rgb(222, 113, 4)',
+    primaryPink: 'rgb(186, 7, 68)',
+    primaryGrey: 'rgb(158, 158, 158)',
+    primaryBlack: 'rgb(240, 240, 240)',
+    primaryWhite: 'rgb(40, 40, 40)',
+    transparentWhite: 'rgba(255, 255, 250, 0.4)',
+    transparentWhiteExtra: 'rgba(25, 25, 25, 0.7)',
+    transparentBlack: 'rgba(230, 230, 230, 0.4)',
+  },
+};
+
+export const Globals = css`
+  @font-face {
+    font-family: 'Pokemon';
+    src: url('/fonts/Pokemon Solid.ttf') format('truetype');
+  }
+
+  :root {
+    --primary-orange: ${({ theme }) => theme.colors.primaryOrange};
+    --primary-pink: ${({ theme }) => theme.colors.primaryPink};
+    --primary-grey: ${({ theme }) => theme.colors.primaryGrey};
+    --primary-black: ${({ theme }) => theme.colors.primaryBlack};
+    --primary-white: ${({ theme }) => theme.colors.primaryWhite};
+    --transparent-white: ${({ theme }) => theme.colors.transparentWhite};
+    --transparent-white-extra: ${({ theme }) =>
+      theme.colors.transparentWhiteExtra};
+    --transparent-black: ${({ theme }) => theme.colors.transparentBlack};
   }
 
   body {
+    margin: 0;
     .poke-font {
-      font-family: "Pokemon", sans-serif
+      font-family: 'Pokemon', sans-serif;
     }
   }
 `;
-
-
-export default Globals;

@@ -7,5 +7,6 @@ export const CardsContainer = styled.div`
   padding: 3em;
   align-items: center;
   justify-content: center;
+  background-color: var(--primary-white)
 
 `

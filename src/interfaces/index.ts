@@ -27,3 +27,11 @@ export interface IPokemonData {
   abilities: string[];
   weaknesses: string[];
 }
+
+export interface ITheme {
+  toggleTheme: () => void;
+}
+
+export interface IHeaderProps extends ITheme {
+  toggleTheme: () => void;
+}
