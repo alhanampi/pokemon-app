@@ -13,6 +13,11 @@ export const FooterContainer = styled.div`
   justify-content: space-around;
   z-index: 2;
 
+  .name {
+    font-size: 1.5em;
+    letter-spacing: 2px;
+  }
+
   .contacts {
     svg {
       margin: 1em;

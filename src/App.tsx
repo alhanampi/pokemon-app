@@ -2,9 +2,10 @@ import React, { FC, useState } from "react";
 import MainScreen from "./components/MainScreen";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/globals";
-import {Globals} from "./styles/globals";
+import { Globals } from "./styles/globals";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { SearchProvider } from "./context";
 
 const GlobalStyles = createGlobalStyle`${Globals}`;
 
@@ -21,12 +22,14 @@ const App: FC = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Header toggleTheme={toggleTheme} />
-      <MainScreen />
-      <Footer />
-    </ThemeProvider>
+    <SearchProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Header toggleTheme={toggleTheme} />
+        <MainScreen />
+        <Footer />
+      </ThemeProvider>
+    </SearchProvider>
   );
 };
 

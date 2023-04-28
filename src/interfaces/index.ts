@@ -1,7 +1,6 @@
 export interface IMainScreenState {
   pokes: IPokemonData[];
   currentPage: number;
-  searchTerm: string;
 }
 
 export interface IPokemonResult {
@@ -34,4 +33,9 @@ export interface ITheme {
 
 export interface IHeaderProps extends ITheme {
   toggleTheme: () => void;
+}
+
+export interface ISearchContextType {
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
 }

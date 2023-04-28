@@ -7,6 +7,6 @@ export const CardsContainer = styled.div`
   padding: 3em;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-white)
-
+  background-color: var(--primary-white);
+  min-height: 100vh;
 `

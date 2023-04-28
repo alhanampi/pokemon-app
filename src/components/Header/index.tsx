@@ -1,13 +1,15 @@
-import { FC, useState } from "react";
+import { FC, useContext } from "react";
 import { HeaderContainer, SearchInput, Toggle } from "./styles";
 import { CgPokemon } from "react-icons/cg";
 import { IHeaderProps } from "../../interfaces";
+import { SearchContext } from "../../context";
 
 const Header: FC<IHeaderProps> = ({ toggleTheme }) => {
-  const [searchValue, setSearchValue] = useState("");
+  const { searchTerm, setSearchTerm } = useContext(SearchContext);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
+    const searchTerm = event.target.value;
+    setSearchTerm(searchTerm);
   };
 
   return (
@@ -21,7 +23,7 @@ const Header: FC<IHeaderProps> = ({ toggleTheme }) => {
           type="text"
           placeholder="Search"
           className="poke-font"
-          value={searchValue}
+          value={searchTerm}
           onChange={handleSearchChange}
         />
         <Toggle>

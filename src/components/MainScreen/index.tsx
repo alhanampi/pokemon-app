@@ -1,19 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, useContext } from "react";
 import { getAllPokemon } from "../../services/pokeService";
 import Card from "../Card";
 import { CardsContainer } from "./styles";
-import Header from "../Header";
 import { IMainScreenState } from "../../interfaces";
+import { SearchContext } from "../../context";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const MainScreen: FC = () => {
   const [state, setState] = useState<IMainScreenState>({
     pokes: [],
     currentPage: 1,
-    searchTerm: "",
   });
 
   const { pokes, currentPage } = state;
+  const { searchTerm } = useContext(SearchContext);
 
   useEffect(() => {
     const getPokes = async () => {
@@ -30,9 +30,12 @@ const MainScreen: FC = () => {
   const loadMorePokemon = async () => {
     try {
       const response = await getAllPokemon(currentPage * 20);
+      const newPokes = response.filter((poke) =>
+        poke.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
       setState((prevState) => ({
         ...prevState,
-        pokes: [...prevState.pokes, ...response],
+        pokes: [...prevState.pokes, ...newPokes],
         currentPage: prevState.currentPage + 1,
       }));
     } catch (error) {
@@ -40,21 +43,20 @@ const MainScreen: FC = () => {
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-        loadMorePokemon();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [currentPage]);
+  const filteredPokes = pokes.filter((poke) =>
+    poke.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div>
+    <InfiniteScroll
+      dataLength={filteredPokes.length}
+      next={loadMorePokemon}
+      hasMore={true}
+      loader={<></>}
+      endMessage={<h4>End of results</h4>}
+    >
       <CardsContainer>
-        {pokes.map((poke) => (
+        {filteredPokes.map((poke) => (
           <Card
             key={poke.name}
             name={poke.name}
@@ -67,7 +69,7 @@ const MainScreen: FC = () => {
           />
         ))}
       </CardsContainer>
-    </div>
+    </InfiniteScroll>
   );
 };
 

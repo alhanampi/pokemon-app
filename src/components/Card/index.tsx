@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import MiniCard from "./MiniCard";
 import FullCard from "./FullCard";
 import { CardContainer } from "./styles";
