@@ -1,6 +1,6 @@
 # Pokemon app
 
-What it says. An app using the pokeapi to display all the pokemons, with infinite scroll, flipcard and a search function (ok, ok, several of those things still aren't there, give me time)
+What it says. An app using the pokeapi to display all the pokemons, with infinite scroll, flipcard, dark mode, and a search all pokemon function.
 
 ## How to start
 
@@ -22,11 +22,11 @@ What makes this project different, then? well, I used it to test chat-gpt, askin
 
 ## Screenshots
 
-![](public/images/screenshots/1.PNG)
-![](public/images/screenshots/02.PNG)
-![](public/images/screenshots/03.PNG)
-![](public/images/screenshots/04.PNG)
+![mainscreen](public/screenshots/1.PNG)
+![mainscreen-dark](public/screenshots/02.PNG)
+![mobile](public/screenshots/03.PNG)
+![mobile-search](public/screenshots/04.PNG)
 
 ## Vercel
 
-https://pokemon-a7njwxj3o-alhanampi.vercel.app/
+pokemon-app-alhanampi.vercel.app
