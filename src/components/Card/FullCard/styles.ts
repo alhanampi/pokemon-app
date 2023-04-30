@@ -42,7 +42,7 @@ export const FullCardContainer = styled.div`
   .icons {
     display: flex;
     justify-content: center;
-    
+
     img {
       width: 1em;
       height: 1em;
@@ -55,5 +55,24 @@ export const FullCardContainer = styled.div`
 
   &:hover {
     transform: rotateY(30deg);
+  }
+
+  @media (max-width: 600px) {
+    width: 14em;
+    height: 16em;
+    margin: 0 10px;
+
+    .poke {
+      height: 8em;
+      z-index: 3;
+      margin: -4em 0;
+    }
+
+    .poke-font {
+      font-size: 11px;
+    }
+    .info {
+      font-size: 12px;
+    }
   }
 `;

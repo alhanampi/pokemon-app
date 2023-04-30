@@ -1,8 +1,8 @@
 import { FC, useEffect, useState, useContext } from "react";
-import { getAllPokemon } from "../../services/pokeService";
+import { getAllPokemon, searchPokemon } from "../../services/pokeService";
 import Card from "../Card";
 import { CardsContainer } from "./styles";
-import { IMainScreenState } from "../../interfaces";
+import { IMainScreenState, IPokemonData } from "../../interfaces";
 import { SearchContext } from "../../context";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -29,13 +29,15 @@ const MainScreen: FC = () => {
 
   const loadMorePokemon = async () => {
     try {
-      const response = await getAllPokemon(currentPage * 20);
-      const newPokes = response.filter((poke) =>
-        poke.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      let response: IPokemonData[];
+      if (searchTerm) {
+        response = await searchPokemon(searchTerm);
+      } else {
+        response = await getAllPokemon(currentPage * 20);
+      }
       setState((prevState) => ({
         ...prevState,
-        pokes: [...prevState.pokes, ...newPokes],
+        pokes: [...prevState.pokes, ...response],
         currentPage: prevState.currentPage + 1,
       }));
     } catch (error) {
@@ -53,7 +55,7 @@ const MainScreen: FC = () => {
       next={loadMorePokemon}
       hasMore={true}
       loader={<></>}
-      endMessage={<h4>End of results</h4>}
+      endMessage={<></>}
     >
       <CardsContainer>
         {filteredPokes.map((poke) => (

@@ -22,7 +22,10 @@ What makes this project different, then? well, I used it to test chat-gpt, askin
 
 ## Screenshots
 
-Coming soon!
+![](public/images/screenshots/1.PNG)
+![](public/images/screenshots/02.PNG)
+![](public/images/screenshots/03.PNG)
+![](public/images/screenshots/04.PNG)
 
 ## Vercel
 

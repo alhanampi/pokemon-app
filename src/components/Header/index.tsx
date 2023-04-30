@@ -15,8 +15,10 @@ const Header: FC<IHeaderProps> = ({ toggleTheme }) => {
   return (
     <HeaderContainer className="poke-font">
       <div className="left">
-        <CgPokemon className="icon" />
-        PokeApp
+        <a href="/">
+          <CgPokemon className="icon" />
+          <span>PokeApp</span>
+        </a>
       </div>
       <div className="right">
         <SearchInput

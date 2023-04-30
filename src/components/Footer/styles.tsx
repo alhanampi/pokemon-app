@@ -29,4 +29,16 @@ export const FooterContainer = styled.div`
       }
     }
   }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    height: 75px;
+    .name {
+      font-size: 1em;
+    }
+    .contacts svg {
+      margin: 0.4em;
+      height: 20px;
+    }
+  }
 `;

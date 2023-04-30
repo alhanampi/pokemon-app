@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CardsContainer = styled.div`
   display: flex;
@@ -9,4 +9,4 @@ export const CardsContainer = styled.div`
   justify-content: center;
   background-color: var(--primary-white);
   min-height: 100vh;
-`
+`;

@@ -36,4 +36,10 @@ export const CardContainer = styled.div`
   &.show-full .card {
     transform: rotateY(180deg);
   }
+
+  @media (max-width: 600px) {
+width: 14em;
+    height: 16em;
+    margin: 0 10px;
+  }
 `;
